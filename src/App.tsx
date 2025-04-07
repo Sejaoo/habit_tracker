@@ -8,6 +8,7 @@ import { HabitProvider } from "./context/HabitContext";
 
 function App() {
   return (
+    
     <HabitProvider>
       <Router basename="/habit_tracker">
         <NavBar />

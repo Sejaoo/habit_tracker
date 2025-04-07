@@ -138,11 +138,11 @@ const Habits: React.FC = () => {
   };
 
   return (
-    <div className="pt-16 p-4 max-w-2xl mx-auto">
+    <div className="pt-16 p-4 max-w-2xl mx-auto bg-yellow-50 min-h-screen">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">All Habits</h1>
+        <h1 className="text-3xl font-bold text-orange-800">All Habits</h1>
         <button
-          className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
+          className="px-6 py-2 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition-colors"
           onClick={handleAddHabit}
         >
           +
@@ -161,8 +161,8 @@ const Habits: React.FC = () => {
             key={tab}
             className={`px-3 py-1 rounded-md text-sm font-medium ${
               selectedTimeTab === tab
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-orange-400 text-white"
+                : "bg-yellow-100 text-orange-700 hover:bg-yellow-200"
             }`}
             onClick={() => setSelectedTimeTab(tab)}
           >
@@ -193,10 +193,10 @@ const Habits: React.FC = () => {
                   className="w-8 h-8 text-yellow-500 mr-2"
                 />
                 <Icon name={habit.icon} className="w-6 h-6 mr-2" />
-                <span className="text-lg">{habit.name}</span>
+                <span className="text-lg text-orange-800">{habit.name}</span>
               </div>
               <div className="text-right">
-                <div className="text-sm font-semibold">
+                <div className="text-sm font-semibold text-orange-700">
                   Streak: {calculateStreak(habit)} days
                 </div>
                 <div className="text-xs text-gray-500">Streak days</div>
@@ -206,7 +206,7 @@ const Habits: React.FC = () => {
       </div>
       <div className="mt-6 text-center">
         <button
-          className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+          className="px-6 py-2 bg-orange-400 text-white rounded-md hover:bg-orange-500 transition-colors"
           onClick={handleAddHabit}
         >
           + Add a new DIY habit
@@ -220,33 +220,35 @@ const Habits: React.FC = () => {
             if (e.target === e.currentTarget) setIsAddHabitOpen(false);
           }}
         >
-          <div className="bg-white rounded-lg shadow-2xl w-[50vw] min-w-[300px] max-h-[80vh] p-6 flex flex-col overflow-y-auto">
-            <div className="flex justify-between items-center mb-4 border-b border-gray-200 pb-2">
+          <div className="bg-yellow-100 rounded-lg shadow-2xl w-full max-w-2xl mx-4 max-h-[80vh] p-6 flex flex-col overflow-y-auto">
+            <div className="flex justify-between items-center mb-4 border-b border-orange-200 pb-2">
               <button
-                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"
+                className="px-4 py-2 bg-yellow-200 text-orange-700 rounded-md hover:bg-yellow-300 transition-colors"
                 onClick={handleCancel}
               >
                 Cancel
               </button>
               <button
-                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+                className="px-4 py-2 bg-orange-400 text-white rounded-md hover:bg-orange-500 transition-colors"
                 onClick={handleSave}
               >
                 Save
               </button>
             </div>
             <div className="mb-4">
-              <p className="text-lg font-medium">Name this habit:</p>
+              <p className="text-lg font-medium text-orange-800">
+                Name this habit:
+              </p>
               <div className="flex items-center mt-2">
                 <input
                   type="text"
                   placeholder="Enter habit name"
                   value={newHabitName}
                   onChange={(e) => setNewHabitName(e.target.value)}
-                  className="flex-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 p-2 border border-orange-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
                 />
                 <button
-                  className="ml-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"
+                  className="ml-2 px-4 py-2 bg-yellow-200 text-orange-700 rounded-md hover:bg-yellow-300 transition-colors"
                   onClick={() => setIsHabitInventoryOpen(true)}
                 >
                   Habit Inventory
@@ -254,7 +256,7 @@ const Habits: React.FC = () => {
               </div>
             </div>
             <div className="mb-4">
-              <p className="text-lg font-medium">
+              <p className="text-lg font-medium text-orange-800">
                 Choose an icon for your habit:
               </p>
               <div className="grid grid-cols-5 gap-2 mt-2">
@@ -263,20 +265,20 @@ const Habits: React.FC = () => {
                     key={icon}
                     className={`p-2 flex justify-center items-center border rounded-md cursor-pointer transition-all ${
                       selectedIcon === icon
-                        ? "border-2 border-blue-500 shadow-md"
-                        : "border-gray-300"
+                        ? "border-2 border-orange-400 shadow-md bg-orange-50"
+                        : "border-orange-200 bg-white"
                     }`}
                     onClick={() =>
                       setSelectedIcon(selectedIcon === icon ? null : icon)
                     }
                   >
-                    <Icon name={icon} className="w-6 h-6" />
+                    <Icon name={icon} className="w-6 h-6 text-orange-600" />
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <p className="text-lg font-medium">
+              <p className="text-lg font-medium text-orange-800">
                 Choose a time to do this habit:
               </p>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -285,8 +287,8 @@ const Habits: React.FC = () => {
                     key={slot}
                     className={`px-4 py-2 rounded-md transition-colors ${
                       selectedTimeSlot === slot
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        ? "bg-orange-400 text-white"
+                        : "bg-yellow-200 text-orange-700 hover:bg-yellow-300"
                     }`}
                     onClick={() => setSelectedTimeSlot(slot)}
                   >
@@ -306,37 +308,52 @@ const Habits: React.FC = () => {
             if (e.target === e.currentTarget) setIsHabitDetailOpen(false);
           }}
         >
-          <div className="bg-white rounded-lg shadow-2xl w-[50vw] min-w-[300px] p-6 flex flex-col">
+          <div className="bg-yellow-100 rounded-lg shadow-2xl w-[50vw] min-w-[300px] p-6 flex flex-col">
             {!isEditing ? (
               <>
                 <div className="flex justify-between mb-4">
-                  <span className="text-lg font-medium">Name:</span>
-                  <span className="text-lg">{selectedHabit.name}</span>
+                  <span className="text-lg font-medium text-orange-800">
+                    Name:
+                  </span>
+                  <span className="text-lg text-orange-700">
+                    {selectedHabit.name}
+                  </span>
                 </div>
                 <div className="flex justify-between mb-4">
-                  <span className="text-lg font-medium">Icon:</span>
-                  <Icon name={selectedHabit.icon} className="w-6 h-6" />
+                  <span className="text-lg font-medium text-orange-800">
+                    Icon:
+                  </span>
+                  <Icon
+                    name={selectedHabit.icon}
+                    className="w-6 h-6 text-orange-600"
+                  />
                 </div>
                 <div className="flex justify-between mb-4">
-                  <span className="text-lg font-medium">Time:</span>
-                  <span className="text-lg">{selectedHabit.timeSlot}</span>
+                  <span className="text-lg font-medium text-orange-800">
+                    Time:
+                  </span>
+                  <span className="text-lg text-orange-700">
+                    {selectedHabit.timeSlot}
+                  </span>
                 </div>
                 <div className="flex justify-between mb-4">
-                  <span className="text-lg font-medium">Streak days:</span>
-                  <span className="text-lg">
+                  <span className="text-lg font-medium text-orange-800">
+                    Streak days:
+                  </span>
+                  <span className="text-lg text-orange-700">
                     {calculateStreak(selectedHabit)} days (Ever Most:{" "}
                     {calculateStreak(selectedHabit)} days)
                   </span>
                 </div>
                 <button
-                  className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors mb-4"
-                  onClick={() => setIsHabitJournalOpen(true)} // 打开 All Journal 弹窗
+                  className="px-4 py-2 bg-orange-400 text-white rounded-md hover:bg-orange-500 transition-colors mb-4"
+                  onClick={() => setIsHabitJournalOpen(true)}
                 >
                   Check All Journals
                 </button>
                 <div className="flex justify-between">
                   <button
-                    className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"
+                    className="px-4 py-2 bg-yellow-200 text-orange-700 rounded-md hover:bg-yellow-300 transition-colors"
                     onClick={() => {
                       setIsEditing(true);
                       setEditName(selectedHabit.name);
@@ -347,12 +364,12 @@ const Habits: React.FC = () => {
                     Edit
                   </button>
                   <button
-                    className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
+                    className="px-4 py-2 bg-red-400 text-white rounded-md hover:bg-red-500 transition-colors"
                     onClick={() => {
                       setHabits(
                         habits.filter((h) => h.id !== selectedHabit.id)
                       );
-                      setIsHabitDetailOpen(false); // 删除后关闭弹窗
+                      setIsHabitDetailOpen(false);
                     }}
                   >
                     Delete
@@ -362,42 +379,48 @@ const Habits: React.FC = () => {
             ) : (
               <div className="max-h-[60vh] overflow-y-auto">
                 <div className="mb-4">
-                  <span className="text-lg font-medium">Name:</span>
+                  <span className="text-lg font-medium text-orange-800">
+                    Name:
+                  </span>
                   <input
                     type="text"
                     value={editName}
                     onChange={(e) => setEditName(e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 mt-1"
+                    className="w-full p-2 border border-orange-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white mt-1"
                   />
                 </div>
                 <div className="mb-4">
-                  <span className="text-lg font-medium">Icon:</span>
+                  <span className="text-lg font-medium text-orange-800">
+                    Icon:
+                  </span>
                   <div className="grid grid-cols-5 gap-2 mt-1">
                     {availableIcons.map((icon) => (
                       <div
                         key={icon}
                         className={`p-2 flex justify-center items-center border rounded-md cursor-pointer transition-all ${
                           editIcon === icon
-                            ? "border-2 border-blue-500 shadow-md"
-                            : "border-gray-300"
+                            ? "border-2 border-orange-400 shadow-md bg-orange-50"
+                            : "border-orange-200 bg-white"
                         }`}
                         onClick={() => setEditIcon(icon)}
                       >
-                        <Icon name={icon} className="w-6 h-6" />
+                        <Icon name={icon} className="w-6 h-6 text-orange-600" />
                       </div>
                     ))}
                   </div>
                 </div>
                 <div className="mb-4">
-                  <span className="text-lg font-medium">Time:</span>
+                  <span className="text-lg font-medium text-orange-800">
+                    Time:
+                  </span>
                   <div className="flex flex-wrap gap-2 mt-1">
                     {timeSlots.map((slot) => (
                       <button
                         key={slot}
                         className={`px-4 py-2 rounded-md transition-colors ${
                           editTimeSlot === slot
-                            ? "bg-blue-500 text-white"
-                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                            ? "bg-orange-400 text-white"
+                            : "bg-yellow-200 text-orange-700 hover:bg-yellow-300"
                         }`}
                         onClick={() => setEditTimeSlot(slot)}
                       >
@@ -408,13 +431,13 @@ const Habits: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <button
-                    className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"
+                    className="px-4 py-2 bg-yellow-200 text-orange-700 rounded-md hover:bg-yellow-300 transition-colors"
                     onClick={() => setIsEditing(false)}
                   >
                     Cancel
                   </button>
                   <button
-                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+                    className="px-4 py-2 bg-orange-400 text-white rounded-md hover:bg-orange-500 transition-colors"
                     onClick={() => {
                       if (
                         editName &&
@@ -447,8 +470,8 @@ const Habits: React.FC = () => {
             if (e.target === e.currentTarget) setIsHabitJournalOpen(false);
           }}
         >
-          <div className="bg-white rounded-lg shadow-2xl w-[75vw] min-w-[calc(100%/3-1rem)] h-[80vh] relative">
-            <div className="bg-blue-500 text-white p-4 rounded-t-lg text-center flex items-center justify-center">
+          <div className="bg-yellow-100 rounded-lg shadow-2xl w-[75vw] min-w-[calc(100%/3-1rem)] h-[80vh] relative">
+            <div className="bg-orange-400 text-white p-4 rounded-t-lg text-center flex items-center justify-center">
               <Icon name={selectedHabit.icon} className="w-6 h-6 mr-2" />
               <h2 className="text-2xl font-bold">
                 {selectedHabit.name} Journal
@@ -461,23 +484,27 @@ const Habits: React.FC = () => {
                   selectedHabit.journalEntries.map((entry, index) => (
                     <div
                       key={index}
-                      className="p-2 bg-gray-100 rounded-md mb-2 flex justify-between items-center"
+                      className="p-2 bg-yellow-200 rounded-md mb-2 flex justify-between items-center"
                     >
                       <div className="flex-1">
-                        <p className="text-sm font-semibold">{entry.date}</p>
-                        <p className="text-sm">{entry.content}</p>
+                        <p className="text-sm font-semibold text-orange-800">
+                          {entry.date}
+                        </p>
+                        <p className="text-sm text-orange-700">
+                          {entry.content}
+                        </p>
                       </div>
                     </div>
                   ))
                 ) : (
-                  <p className="text-gray-500 text-center">
+                  <p className="text-orange-600 text-center">
                     No journal entries yet.
                   </p>
                 )}
               </div>
             </div>
             <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-2 right-2 text-orange-700 hover:text-orange-900"
               onClick={() => setIsHabitJournalOpen(false)}
             >
               ✕

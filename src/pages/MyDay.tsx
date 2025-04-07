@@ -61,16 +61,20 @@ const MyDay: React.FC = () => {
   };
 
   return (
-    <div className="pt-16 p-4 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold text-center mb-4">My Day</h1>
+    <div className="pt-16 p-4 max-w-2xl mx-auto bg-yellow-50 min-h-screen">
+      <h1 className="text-2xl font-bold text-center mb-4 text-orange-800">
+        My Day
+      </h1>
       <Calendar
         onChange={(value) => setSelectedDate(value as Date)}
         value={selectedDate}
         tileContent={tileContent}
-        className="w-full mb-4 border rounded-md shadow-sm"
+        className="w-full mb-4 border border-orange-200 rounded-md shadow-sm bg-white"
       />
       <div className="space-y-2">
-        <h3 className="text-lg font-semibold">{selectedDate.toDateString()}</h3>
+        <h3 className="text-lg font-semibold text-orange-800">
+          {selectedDate.toDateString()}
+        </h3>
         {habits.length > 0 ? (
           habits.map((habit) => (
             <div
@@ -83,8 +87,11 @@ const MyDay: React.FC = () => {
               }}
             >
               <div className="flex items-center">
-                <Icon name={habit.icon} className="w-6 h-6 mr-2" />
-                <span className="text-lg">{habit.name}</span>
+                <Icon
+                  name={habit.icon}
+                  className="w-6 h-6 mr-2 text-orange-600"
+                />
+                <span className="text-lg text-orange-700">{habit.name}</span>
               </div>
               {calculateCompleted(habit, selectedDate) && (
                 <span className="w-3 h-3 bg-green-500 rounded-full ml-2"></span>
@@ -92,7 +99,7 @@ const MyDay: React.FC = () => {
             </div>
           ))
         ) : (
-          <p className="text-gray-500 text-center">
+          <p className="text-orange-600 text-center">
             Seems like nothing to do today~
           </p>
         )}
@@ -104,8 +111,8 @@ const MyDay: React.FC = () => {
             if (e.target === e.currentTarget) setIsJournalOpen(false);
           }}
         >
-          <div className="bg-white rounded-lg shadow-2xl w-[75vw] min-w-[calc(100%/3-1rem)] h-[80vh] relative">
-            <div className="bg-blue-500 text-white p-4 rounded-t-lg text-center flex items-center justify-center">
+          <div className="bg-yellow-100 rounded-lg shadow-2xl w-full max-w-2xl mx-4 h-[80vh] relative">
+            <div className="bg-orange-400 text-white p-4 rounded-t-lg text-center flex items-center justify-center">
               <Icon name={selectedHabit.icon} className="w-6 h-6 mr-2" />
               <h2 className="text-2xl font-bold">
                 {selectedHabit.name} Journal
@@ -118,23 +125,27 @@ const MyDay: React.FC = () => {
                   selectedHabit.journalEntries.map((entry, index) => (
                     <div
                       key={index}
-                      className="p-2 bg-gray-100 rounded-md mb-2 flex justify-between items-center"
+                      className="p-2 bg-yellow-200 rounded-md mb-2 flex justify-between items-center"
                     >
                       <div className="flex-1">
-                        <p className="text-sm font-semibold">{entry.date}</p>
-                        <p className="text-sm">{entry.content}</p>
+                        <p className="text-sm font-semibold text-orange-800">
+                          {entry.date}
+                        </p>
+                        <p className="text-sm text-orange-700">
+                          {entry.content}
+                        </p>
                       </div>
                     </div>
                   ))
                 ) : (
-                  <p className="text-gray-500 text-center">
+                  <p className="text-orange-600 text-center">
                     No journal entries yet.
                   </p>
                 )}
               </div>
             </div>
             <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-2 right-2 text-orange-700 hover:text-orange-900"
               onClick={() => setIsJournalOpen(false)}
             >
               ✕
