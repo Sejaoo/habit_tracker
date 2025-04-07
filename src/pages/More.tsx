@@ -4,7 +4,7 @@ import { useHabits } from "../context/HabitContext";
 
 const More: React.FC = () => {
   const [selectedAvatar, setSelectedAvatar] = useState<string>(() => {
-    return localStorage.getItem("selectedAvatar") || "/habit_tracker/avatars/001-boy.png";
+    return localStorage.getItem("selectedAvatar") || "${baseUrl}avatars/001-boy.png";
   });
   const [nickname, setNickname] = useState(() => {
     return localStorage.getItem("nickname") || "";
@@ -21,36 +21,36 @@ const More: React.FC = () => {
   }, [selectedAvatar, nickname]);
 
   const avatarOptions = [
-    "/habit_tracker/avatars/001-boy.png",
-    "/habit_tracker/avatars/002-girl.png",
-    "/habit_tracker/avatars/003-boy.png",
-    "/habit_tracker/avatars/004-girl.png",
-    "/habit_tracker/avatars/005-boy.png",
-    "/habit_tracker/avatars/006-girl.png",
-    "/habit_tracker/avatars/007-boy.png",
-    "/habit_tracker/avatars/008-girl.png",
-    "/habit_tracker/avatars/009-boy.png",
-    "/habit_tracker/avatars/010-girl.png",
-    "/habit_tracker/avatars/011-boy.png",
-    "/habit_tracker/avatars/012-girl.png",
-    "/habit_tracker/avatars/013-girl.png",
-    "/habit_tracker/avatars/014-boy.png",
-    "/habit_tracker/avatars/015-girl.png",
-    "/habit_tracker/avatars/016-boy.png",
-    "/habit_tracker/avatars/017-girl.png",
-    "/habit_tracker/avatars/018-girl.png",
-    "/habit_tracker/avatars/019-girl.png",
-    "/habit_tracker/avatars/020-boy.png",
-    "/habit_tracker/avatars/021-girl.png",
-    "/habit_tracker/avatars/022-boy.png",
-    "/habit_tracker/avatars/023-boy.png",
-    "/habit_tracker/avatars/024-girl.png",
-    "/habit_tracker/avatars/025-girl.png",
-    "/habit_tracker/avatars/026-boy.png",
-    "/habit_tracker/avatars/027-girl.png",
-    "/habit_tracker/avatars/028-boy.png",
-    "/habit_tracker/avatars/029-girl.png",
-    "/habit_tracker/avatars/030-girl.png",
+    "/avatars/001-boy.png",
+    "/avatars/002-girl.png",
+    "/avatars/003-boy.png",
+    "/avatars/004-girl.png",
+    "/avatars/005-boy.png",
+    "/avatars/006-girl.png",
+    "/avatars/007-boy.png",
+    "/avatars/008-girl.png",
+    "/avatars/009-boy.png",
+    "/avatars/010-girl.png",
+    "/avatars/011-boy.png",
+    "/avatars/012-girl.png",
+    "/avatars/013-girl.png",
+    "/avatars/014-boy.png",
+    "/avatars/015-girl.png",
+    "/avatars/016-boy.png",
+    "/avatars/017-girl.png",
+    "/avatars/018-girl.png",
+    "/avatars/019-girl.png",
+    "/avatars/020-boy.png",
+    "/avatars/021-girl.png",
+    "/avatars/022-boy.png",
+    "/avatars/023-boy.png",
+    "/avatars/024-girl.png",
+    "/avatars/025-girl.png",
+    "/avatars/026-boy.png",
+    "/avatars/027-girl.png",
+    "/avatars/028-boy.png",
+    "/avatars/029-girl.png",
+    "/avatars/030-girl.png",
   ];
 
   return (
