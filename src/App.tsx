@@ -9,7 +9,7 @@ import { HabitProvider } from "./context/HabitContext";
 function App() {
   return (
     <HabitProvider>
-      <Router>
+      <Router basename="/habit_tracker">
         <NavBar />
         <Routes>
           <Route path="/" element={<ToDay />} />
